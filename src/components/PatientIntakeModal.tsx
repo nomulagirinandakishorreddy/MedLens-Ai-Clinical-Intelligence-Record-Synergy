@@ -62,7 +62,12 @@ export const PatientIntakeModal: React.FC<PatientIntakeModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="intake-modal-title"
+      className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+    >
       <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-3xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Modal Header */}
         <div className="px-6 py-4 bg-slate-800/80 border-b border-slate-700 flex justify-between items-center">
@@ -71,11 +76,15 @@ export const PatientIntakeModal: React.FC<PatientIntakeModalProps> = ({
               <User className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white">Patient Intake & Demographics</h2>
+              <h2 id="intake-modal-title" className="text-lg font-bold text-white">Patient Intake & Demographics</h2>
               <p className="text-xs text-slate-400">Provenance-tracked patient record capture</p>
             </div>
           </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800">
+          <button
+            onClick={onClose}
+            aria-label="Close modal"
+            className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
             <X className="w-5 h-5" />
           </button>
         </div>
