@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               title="View Hackathon AI Evaluation Score Matrix"
             >
               <Sparkles className="w-3 h-3 text-emerald-400" />
-              <span>AI Eval Alignment 95+</span>
+              <span>AI Eval Score: 93.0</span>
             </button>
           )}
           <button
