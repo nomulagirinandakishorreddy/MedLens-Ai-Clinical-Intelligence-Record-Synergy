@@ -291,7 +291,12 @@ export const ReportUploaderModal: React.FC<ReportUploaderModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto selection:bg-sky-500 selection:text-white">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto selection:bg-sky-500 selection:text-white"
+    >
       <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full shadow-2xl overflow-hidden flex flex-col">
         {/* Header */}
         <div className="px-6 py-4 bg-slate-800/90 border-b border-slate-700 flex justify-between items-center">
@@ -300,11 +305,15 @@ export const ReportUploaderModal: React.FC<ReportUploaderModalProps> = ({
               <UploadCloud className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">Medical Report Parser & Provenance Engine</h2>
+              <h2 id="modal-title" className="text-base font-bold text-white">Clinical Document Intake & Provenance AI</h2>
               <p className="text-xs text-slate-400">Extract test names, values, units & source bounding boxes</p>
             </div>
           </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800">
+          <button
+            onClick={onClose}
+            aria-label="Close modal"
+            className="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
             <X className="w-5 h-5" />
           </button>
         </div>

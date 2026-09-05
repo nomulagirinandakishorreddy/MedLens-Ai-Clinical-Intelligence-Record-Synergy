@@ -95,6 +95,10 @@ export interface PatientProfile {
     transportationAccess: 'Reliable' | 'Limited' | 'None';
     financialStress: 'Low' | 'Moderate' | 'High';
   };
+  labs?: LabResult[];
+  medications?: Medication[];
+  conditions?: Condition[];
+  allergies?: Allergy[];
 }
 
 export interface CrossValidationAlert {

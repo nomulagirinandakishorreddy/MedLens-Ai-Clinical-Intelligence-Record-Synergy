@@ -24,6 +24,7 @@ import { CareCircleModal } from './components/CareCircleModal';
 import { AmbientRecorderModal } from './components/AmbientRecorderModal';
 import { QuizModal } from './components/QuizModal';
 import { AiAssistantDrawer } from './components/AiAssistantDrawer';
+import { AlignmentMatrixModal } from './components/AlignmentMatrixModal';
 
 import {
   INITIAL_PATIENT,
@@ -108,6 +109,7 @@ export function App() {
   const [showAmbientModal, setShowAmbientModal] = useState(false);
   const [showQuizModal, setShowQuizModal] = useState(false);
   const [showAiDrawer, setShowAiDrawer] = useState(false);
+  const [showAlignmentMatrixModal, setShowAlignmentMatrixModal] = useState(false);
 
   // Load user details from LocalStorage upon login or session start
   const handleAuthenticatedUser = (userProfile: PatientProfile) => {
@@ -253,6 +255,7 @@ export function App() {
         onLogout={handleLogout}
         onBackToIntro={() => navigateTo('intro')}
         literacyScore={literacyScore}
+        onOpenAlignmentMatrix={() => setShowAlignmentMatrixModal(true)}
       />
 
       {/* Main Viewport Container */}
@@ -399,6 +402,11 @@ export function App() {
           }}
         />
       )}
+
+      <AlignmentMatrixModal
+        isOpen={showAlignmentMatrixModal}
+        onClose={() => setShowAlignmentMatrixModal(false)}
+      />
     </div>
   );
 }
